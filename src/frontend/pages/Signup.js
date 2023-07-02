@@ -1,7 +1,7 @@
 import React from "react";
 import "./Signup.css";
 import { useSignup } from "../contexts/authContext/SignupContext";
-// import { SignupHandler } from "../../services/SignupHandler";
+import { SignupHandler } from "../services/SignupHandler";
 export const Signup = () => {
   const { user, setUser, sigupUser, setSignupUser } = useSignup();
 
@@ -16,7 +16,7 @@ export const Signup = () => {
           onSubmit={(e) => {
             e.preventDefault();
             console.log("submit");
-            // SignupHandler(setUser, sigupUser);
+            SignupHandler(setUser, sigupUser);
           }}
         >
           <h1>Signup</h1>

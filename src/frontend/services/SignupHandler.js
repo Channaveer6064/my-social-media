@@ -9,6 +9,7 @@ export const SignupHandler = async (setUser, { email, password }) => {
       // username: username,
     });
     console.log(data);
+    console.log(status);
     if (status === 201) {
       localStorage.setItem("token", JSON.stringify(data.encodedToken));
       setUser({
