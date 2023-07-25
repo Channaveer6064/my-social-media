@@ -5,7 +5,7 @@ import React from "react";
 const SigupContext = createContext();
 const istoken = localStorage.getItem("token") ? true : false;
 const SignupProvider = ({ children }) => {
-  const [sigupUser, setSignupUser] = useState({
+  const [signupUser, setSignupUser] = useState({
     fullname: "",
     username: "",
     email: "",
@@ -15,8 +15,10 @@ const SignupProvider = ({ children }) => {
     isUserLoggedIn: istoken,
     tokenVal: localStorage.getItem("token"),
   });
+  console.log(user);
+
   return (
-    <SigupContext.Provider value={{ user, setUser, sigupUser, setSignupUser }}>
+    <SigupContext.Provider value={{ user, setUser, signupUser, setSignupUser }}>
       {children}
     </SigupContext.Provider>
   );

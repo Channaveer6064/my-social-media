@@ -1,0 +1,34 @@
+.post-card-img {
+  height: 40px;
+  border-radius: 50px;
+
+  width: 40px;
+}
+.post-card {
+  margin-top: 1rem;
+}
+.post-card-container {
+  padding: 5px;
+  background-color: white;
+}
+.post-card-content {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  background-color: white;
+}
+.post-card-img-container {
+  margin-right: 5px;
+}
+.post-card-user {
+  display: flex;
+  justify-content: space-between;
+  height: 20px;
+  align-items: center;
+}
+.post-card-icons {
+  display: flex;
+  font-size: large;
+  justify-content: space-between;
+  padding-right: 10px;
+}

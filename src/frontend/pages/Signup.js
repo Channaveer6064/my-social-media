@@ -1,10 +1,11 @@
 import React from "react";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 import { useSignup } from "../contexts/authContext/SignupContext";
 import { SignupHandler } from "../services/SignupHandler";
 export const Signup = () => {
-  const { user, setUser, sigupUser, setSignupUser } = useSignup();
-
+  const { user, setUser, signupUser, setSignupUser } = useSignup();
+  const navigator = useNavigate();
   return (
     <div>
       <div className="signup-form-container">
@@ -16,7 +17,7 @@ export const Signup = () => {
           onSubmit={(e) => {
             e.preventDefault();
             console.log("submit");
-            SignupHandler(setUser, sigupUser);
+            SignupHandler(setUser, signupUser);
           }}
         >
           <h1>Signup</h1>
@@ -28,7 +29,7 @@ export const Signup = () => {
               type="text"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...sigupUser, fullname: e.target.value });
+                setSignupUser({ ...signupUser, fullname: e.target.value });
               }}
             ></input>
           </div>{" "}
@@ -39,7 +40,7 @@ export const Signup = () => {
               type="text"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...sigupUser, username: e.target.value });
+                setSignupUser({ ...signupUser, username: e.target.value });
               }}
             ></input>
           </div>{" "}
@@ -50,7 +51,7 @@ export const Signup = () => {
               type="email"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...sigupUser, email: e.target.value });
+                setSignupUser({ ...signupUser, email: e.target.value });
               }}
             ></input>
           </div>{" "}
@@ -61,7 +62,7 @@ export const Signup = () => {
               type="password"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...sigupUser, password: e.target.value });
+                setSignupUser({ ...signupUser, password: e.target.value });
               }}
             ></input>
           </div>{" "}
@@ -70,10 +71,16 @@ export const Signup = () => {
             <span>I accept all Terms & Conditions</span>
           </div> */}
           <div className="signup-btn">
-            <button className="signup-btns" type="submit">
+            <button
+              className="signup-btns"
+              type="submit"
+              onClick={() => navigator("/login")}
+            >
               Create New Account
             </button>
-            <button className="signup-btns">Already have an account?</button>
+            <button className="signup-btns" onClick={() => navigator("/")}>
+              Already have an account?
+            </button>
           </div>
         </form>
       </div>

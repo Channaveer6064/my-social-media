@@ -1,0 +1,9 @@
+.nav-container {
+  display: flex;
+  height: 5rem;
+  width: 100%;
+  background-color: gray;
+}
+.nav-header {
+  margin-left: 2rem;
+}

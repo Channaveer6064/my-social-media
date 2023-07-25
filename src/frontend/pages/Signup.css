@@ -42,4 +42,5 @@
   color: white;
   padding: 0.5rem;
   background-color: #ff3b30;
+  /* background-color: var(--primary-color); */
 }

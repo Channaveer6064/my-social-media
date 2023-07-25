@@ -5,19 +5,18 @@ export const SignupHandler = async (setUser, { email, password }) => {
     const { data, status } = await axios.post("/api/auth/signup", {
       email: email,
       password: password,
-      // fullname: fullname,
-      // username: username,
     });
     console.log(data);
     console.log(status);
+    const tok = await data?.encodedToken;
+    console.log(tok);
     if (status === 201) {
-      localStorage.setItem("token", JSON.stringify(data.encodedToken));
+      localStorage.setItem("token", JSON.stringify(tok));
       setUser({
-        tokenVal: JSON.stringify(data.encodedToken),
+        tokenVal: JSON.stringify(tok),
         isUserLoggedIn: true,
       });
     }
-    // localStorage.setItem("token", JSON.stringify(data.encodedToken));
   } catch (error) {
     console.log(error);
   }
