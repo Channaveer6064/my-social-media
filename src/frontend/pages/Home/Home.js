@@ -29,10 +29,6 @@ export const Home = () => {
   );
   return (
     <div className="home">
-      {/* <div className="home-sidebar">
-        <Navbar />
-      </div> */}
-
       <div className="home-container">
         <div className="home-sidebar-container">
           <Sidebar />
@@ -80,7 +76,10 @@ export const Home = () => {
                 marginLeft: "77%",
                 borderRadius: "6px",
               }}
-              onClick={() => createPostHandler(postContent, token)}
+              onClick={() => {
+                createPostHandler(postContent, token);
+                setPostContent({ content: "" });
+              }}
             >
               Post
             </button>

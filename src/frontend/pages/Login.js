@@ -31,13 +31,13 @@ export const Login = () => {
         >
           <h1 className="login-label">Login</h1>
           <div>
-            <label className="login-label">UserName</label>
-            <br></br>
+            {/* <label className="login-label">UserName</label>
+            <br></br> */}
             <input
               required
               className="login-input"
               type="username"
-              placeholder="Enter UserName"
+              placeholder="Enter username"
               value={userDetails.username}
               onChange={(e) => {
                 e.preventDefault();
@@ -46,8 +46,8 @@ export const Login = () => {
             ></input>
           </div>{" "}
           <div>
-            <label className="login-label">Password</label>
-            <br></br>
+            {/* <label className="login-label">Password</label> */}
+            {/* <br></br> */}
             <input
               required
               value={userDetails.password}
@@ -68,37 +68,40 @@ export const Login = () => {
             </div>{" "}
           </div>
           <div className="login-btn-container">
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <button className="login-btn" type="submit">
-                Login
-              </button>{" "}
-              <button
-                type="submit"
-                className="login-btn"
-                onClick={() => {
-                  setUserDetails(guestUserDetails);
-                  // navigator("/");
-                }}
-              >
-                Login as guest
-              </button>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginTop: "1rem",
+            <button className="login-btn" type="submit">
+              <strong>Login</strong>
+            </button>{" "}
+            <br />
+            <br />
+            <button
+              type="submit"
+              className="login-btn"
+              onClick={() => {
+                setUserDetails(guestUserDetails);
+                // navigator("/");
               }}
             >
-              <p>create new account?</p>
-              <button
-                className="login-btn"
-                onClick={() => navigator("/signup")}
-              >
-                SignUp
-              </button>
-            </div>{" "}
+              <strong>Login as guest</strong>
+            </button>
           </div>
+          <div
+            style={{
+              display: "flex",
+
+              alignItems: "center",
+            }}
+          >
+            <p style={{ marginRight: "10%", marginLeft: "5%" }}>
+              create new account?
+            </p>
+
+            <strong
+              onClick={() => navigator("/signup")}
+              style={{ color: "var(--primary-color)", cursor: "pointer" }}
+            >
+              SignUp
+            </strong>
+          </div>{" "}
         </form>
       </div>
     </div>

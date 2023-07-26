@@ -1,5 +1,7 @@
 :root {
   /* --primary-color: #ff3b30; */
+  --mg-primary-color: rgba(0, 149, 246, 0.7);
+  --mg-primary-background: rgba(250, 250, 250, 1);
   --primary-color: #ff3b30;
   --secondary-color: #fff6ea;
   --action-color: #3b82f6;

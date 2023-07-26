@@ -4,13 +4,14 @@ import { MdExplore } from "react-icons/md";
 import { BsBookmarkFill } from "react-icons/bs";
 import { IoMdPerson } from "react-icons/io";
 import { RiLogoutBoxRFill } from "react-icons/ri";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/authContext/AuthContext";
 import { usePosts } from "../../contexts/PostContext/PostContext";
 
 export const Sidebar = () => {
-  const { loggedInUserDetails } = useAuth();
+  const { loggedInUserDetails, logoutHandler } = useAuth();
   const { setShowPosts } = usePosts();
+  const navigator = useNavigate();
   return (
     <div className="sidebar-nav-items">
       <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
@@ -54,6 +55,7 @@ export const Sidebar = () => {
         </NavLink>
 
         <NavLink
+          to={"/"}
           className="list-btn-container"
           style={{ textDecoration: "none", color: "black" }}
         >
@@ -93,6 +95,10 @@ export const Sidebar = () => {
         <NavLink
           className="list-btn-container"
           style={{ textDecoration: "none", color: "black" }}
+          onClick={() => {
+            logoutHandler();
+            navigator("/login");
+          }}
         >
           {" "}
           <RiLogoutBoxRFill style={{ fontSize: "20px" }} />

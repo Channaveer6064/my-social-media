@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Navbar } from "../../components/Navbar";
 import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { usePosts } from "../../contexts/PostContext/PostContext";
@@ -27,8 +28,12 @@ export const Explore = () => {
           {allPosts.map(({ image, _id }) =>
             image ? (
               <>
-                {" "}
-                <img src={image} className="explorepage-img" key={_id} />
+                <NavLink
+                  to={`/postdetailPage/${_id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <img src={image} className="explorepage-img" key={_id} />
+                </NavLink>
               </>
             ) : (
               <></>
