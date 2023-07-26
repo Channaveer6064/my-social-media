@@ -5,21 +5,30 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 import { makeServer } from "./server";
-import { SignupProvider } from "../src/frontend/contexts/authContext/SignupContext";
-import { LoginProvider } from "../src/frontend/contexts/authContext/LoginContext";
+import { PostProvider } from "../src/frontend/contexts/PostContext/PostContext";
+import { UserProvider } from "../src/frontend/contexts/userContext/UserContext";
+import { AuthProvider } from "./frontend/contexts/authContext/AuthContext";
+import { BookmarksProvider } from "./frontend/contexts/BookmarkContext/BookmarkContext";
+import { CreatePostProvider } from "./frontend/contexts/CreatePostContext/CreatePostContext";
 makeServer();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <LoginProvider>
-      <SignupProvider>
-        <Router>
-          {" "}
-          <App />
-        </Router>
-      </SignupProvider>
-    </LoginProvider>
+    <AuthProvider>
+      <BookmarksProvider>
+        <UserProvider>
+          <PostProvider>
+            <CreatePostProvider>
+              <Router>
+                {" "}
+                <App />
+              </Router>
+            </CreatePostProvider>
+          </PostProvider>
+        </UserProvider>
+      </BookmarksProvider>
+    </AuthProvider>
   </React.StrictMode>
 );
 

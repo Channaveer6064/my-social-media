@@ -1,10 +1,17 @@
-import React from "react";
+import { useState } from "react";
 import "./Signup.css";
 import { useNavigate } from "react-router-dom";
-import { useSignup } from "../contexts/authContext/SignupContext";
-import { SignupHandler } from "../services/SignupHandler";
+import { useAuth } from "../contexts/authContext/AuthContext";
+
 export const Signup = () => {
-  const { user, setUser, signupUser, setSignupUser } = useSignup();
+  const { signupHandler } = useAuth();
+  const [userSignupDetails, setUserSignupDetails] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "",
+  });
+
   const navigator = useNavigate();
   return (
     <div>
@@ -16,42 +23,52 @@ export const Signup = () => {
           className="signup-form"
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("submit");
-            SignupHandler(setUser, signupUser);
+            signupHandler(userSignupDetails);
+            navigator("/");
           }}
         >
           <h1>Signup</h1>
           <div>
-            <label>Full Name</label>
+            <label>First Name</label>
             <br></br>
             <input
               className="signup-input"
               type="text"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...signupUser, fullname: e.target.value });
+                setUserSignupDetails({
+                  ...userSignupDetails,
+                  firstname: e.target.value,
+                });
               }}
             ></input>
           </div>{" "}
           <div>
-            <label>UserName</label> <br></br>
+            <label>Last Name</label>
+            <br></br>
             <input
               className="signup-input"
               type="text"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...signupUser, username: e.target.value });
+                setUserSignupDetails({
+                  ...userSignupDetails,
+                  lastname: e.target.value,
+                });
               }}
             ></input>
           </div>{" "}
           <div>
-            <label>Email Address</label> <br></br>
+            <label>Username</label> <br></br>
             <input
               className="signup-input"
-              type="email"
+              type="text"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...signupUser, email: e.target.value });
+                setUserSignupDetails({
+                  ...userSignupDetails,
+                  username: e.target.value,
+                });
               }}
             ></input>
           </div>{" "}
@@ -62,25 +79,28 @@ export const Signup = () => {
               type="password"
               onChange={(e) => {
                 e.preventDefault();
-                setSignupUser({ ...signupUser, password: e.target.value });
+                setUserSignupDetails({
+                  ...userSignupDetails,
+                  password: e.target.value,
+                });
               }}
             ></input>
-          </div>{" "}
-          {/* <div>
-            <input type="checkbox" onChange={(e) => e.preventDefault()}></input>
-            <span>I accept all Terms & Conditions</span>
-          </div> */}
+          </div>
           <div className="signup-btn">
-            <button
-              className="signup-btns"
-              type="submit"
-              onClick={() => navigator("/login")}
-            >
-              Create New Account
-            </button>
-            <button className="signup-btns" onClick={() => navigator("/")}>
-              Already have an account?
-            </button>
+            <div>
+              <span>already have a account?</span>
+              <button
+                style={{ marginLeft: "2rem" }}
+                onClick={() => navigator("/login")}
+              >
+                Login
+              </button>
+            </div>
+            <div>
+              <button className="signup-btns" type="submit">
+                signup
+              </button>
+            </div>
           </div>
         </form>
       </div>

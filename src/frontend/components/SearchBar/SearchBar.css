@@ -1,0 +1,25 @@
+.search-bar-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 310px;
+}
+.search-bar {
+  height: 2rem;
+  width: 300px;
+}
+.search-results {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.user-detail-card {
+  padding: 0.5rem;
+}
+.user-detail-card {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 0px 1px rgba(33, 33, 33, 0.1);
+}

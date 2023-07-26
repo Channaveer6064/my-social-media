@@ -1,0 +1,26 @@
+.dropdown-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  right: 0.5rem;
+  top: calc(100%);
+  background-color: white;
+  border-radius: 0.5rem;
+  /* box-shadow: border-box; */
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  /* opacity: 0; */
+}
+.dropdown-content {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+}
+.dropdown-content button {
+  background: transparent;
+  border: none;
+  color: black;
+  padding: 5px 0;
+}

@@ -1,10 +1,19 @@
-import React from "react";
+import { useAuth } from "../contexts/authContext/AuthContext";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import { useLogin } from "../contexts/authContext/LoginContext";
+import { useState } from "react";
 export const Login = () => {
   const navigator = useNavigate();
-  const { logUser, setLogUser, loginHandler } = useLogin();
+  const { loginHandler } = useAuth();
+  const [userDetails, setUserDetails] = useState({
+    username: "",
+    password: "",
+  });
+  // const [showLoginPwd, setShowLoginPwd] = useState(false);
+  const guestUserDetails = {
+    username: "jugeshRaghav01",
+    password: "jugesh15",
+  };
   return (
     <div>
       <div className="form-container">
@@ -16,20 +25,23 @@ export const Login = () => {
           className="login-form"
           onSubmit={(e) => {
             e.preventDefault();
-            loginHandler(logUser);
+            loginHandler(userDetails);
+            navigator("/");
           }}
         >
           <h1 className="login-label">Login</h1>
           <div>
-            <label className="login-label">Email Address</label>
+            <label className="login-label">UserName</label>
             <br></br>
             <input
+              required
               className="login-input"
               type="username"
               placeholder="Enter UserName"
+              value={userDetails.username}
               onChange={(e) => {
                 e.preventDefault();
-                setLogUser({ ...logUser, username: e.target.value });
+                setUserDetails({ ...userDetails, username: e.target.value });
               }}
             ></input>
           </div>{" "}
@@ -37,12 +49,14 @@ export const Login = () => {
             <label className="login-label">Password</label>
             <br></br>
             <input
+              required
+              value={userDetails.password}
               className="login-input"
               type="password"
               placeholder="password "
               onChange={(e) => {
                 e.preventDefault();
-                setLogUser({ ...logUser, password: e.target.value });
+                setUserDetails({ ...userDetails, password: e.target.value });
               }}
             ></input>
           </div>{" "}
@@ -54,11 +68,36 @@ export const Login = () => {
             </div>{" "}
           </div>
           <div className="login-btn-container">
-            {" "}
-            <button className="login-btn">Login</button>{" "}
-            <button className="login-btn" onClick={() => navigator("/signup")}>
-              SignUp
-            </button>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <button className="login-btn" type="submit">
+                Login
+              </button>{" "}
+              <button
+                type="submit"
+                className="login-btn"
+                onClick={() => {
+                  setUserDetails(guestUserDetails);
+                  // navigator("/");
+                }}
+              >
+                Login as guest
+              </button>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                marginTop: "1rem",
+              }}
+            >
+              <p>create new account?</p>
+              <button
+                className="login-btn"
+                onClick={() => navigator("/signup")}
+              >
+                SignUp
+              </button>
+            </div>{" "}
           </div>
         </form>
       </div>

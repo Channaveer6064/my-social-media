@@ -1,0 +1,23 @@
+.postdetails-content {
+  display: flex;
+}
+.postdetails-sidebar-container {
+  width: 30%;
+}
+#postdetails-sidebar-container {
+  display: none;
+}
+.postdetails-posts-container {
+  margin-left: 10%;
+}
+@media (max-width: 900px) {
+  .postdetails-sidebar-container {
+    display: none;
+  }
+  .postdetails-content {
+    justify-content: center;
+  }
+  .postdetails-posts-container {
+    margin-left: 0;
+  }
+}
