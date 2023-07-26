@@ -7,6 +7,9 @@
 #profilepage-main-content {
   display: flex;
 }
+.profile-page-footer {
+  display: none;
+}
 .profile {
   margin-left: 12rem;
 }
@@ -21,10 +24,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* color: var(--action-color); */
   font-size: 18px;
   font-weight: 500;
-  /* box-shadow: 0 0 0 1px var(--action-color); */
 }
 .my-profile-content {
   display: flex;
@@ -60,13 +61,11 @@
 }
 .profilepage-posts-container {
   margin-top: 1rem;
-  /* width: 100%; */
   width: 680px;
 }
 .posts-pics-container {
   display: flex;
   flex-direction: row;
-  /* justify-content: space-evenly; */
   flex-wrap: wrap;
 }
 #posts-pics {
@@ -88,7 +87,6 @@
   }
   .profilepage-posts-container {
     margin-top: 1rem;
-    /* width: 100%; */
     width: 485px;
   }
   .profilepage-filter {
@@ -149,20 +147,17 @@
   .posts-pics-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-evenly; */
     justify-content: flex-start;
     flex-wrap: wrap;
   }
   .profilepage-posts-container {
     margin-top: 1rem;
-    /* width: 100%; */
     width: 485px;
   }
 }
 @media (max-width: 480px) {
   .profilepage-posts-container {
     margin-top: 1rem;
-    /* width: 100%; */
     width: 100wh;
   }
   .profile-page-footer {
