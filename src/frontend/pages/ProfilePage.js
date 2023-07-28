@@ -25,6 +25,9 @@ export const ProfilePage = () => {
   }, [username, _id]);
   return (
     <div className="profile-page-container">
+      <div className="profile-page-footer">
+        <Sidebar />
+      </div>
       <div className="profile-page-content">
         <div id="profilepage-main-content">
           <div className="profilepage-left-sidebar">
@@ -37,9 +40,7 @@ export const ProfilePage = () => {
             />
 
             <br />
-            <div className="profile-page-footer">
-              <Sidebar />
-            </div>
+
             <div className="profilepage-filter">
               {" "}
               <p

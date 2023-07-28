@@ -28,16 +28,7 @@
   font-size: 18px;
   font-weight: 500;
 }
-.my-profile-content {
-  display: flex;
-  margin-top: 10px;
-  flex-direction: column;
-  background-color: white;
-  align-items: center;
-  width: 650px;
-  padding: 1rem;
-  border-radius: 8px;
-}
+
 .main-profile-pic {
   height: 112px;
   width: 112px;
@@ -76,6 +67,13 @@
   margin-right: 10px;
 }
 @media (max-width: 900px) {
+  .profile-page-footer {
+    top: 100vh;
+    width: 100vw;
+    margin-left: 0%;
+    position: fixed;
+    display: flex;
+  }
   .profile-page-container {
     display: flex;
     flex-direction: column;
@@ -113,16 +111,6 @@
     flex-direction: row;
   }
 
-  .my-profile-content {
-    display: flex;
-    margin-top: 10px;
-    flex-direction: column;
-    background-color: white;
-    align-items: center;
-    width: 450px;
-    padding: 1rem;
-    border-radius: 8px;
-  }
   .profile {
     margin-left: 1rem;
   }
@@ -159,12 +147,11 @@
 @media (max-width: 480px) {
   .profilepage-posts-container {
     margin-top: 1rem;
-    width: 100wh;
+    width: 100vw;
   }
   .profile-page-footer {
-    top: 98vh;
-    width: 104vw;
-    margin-left: 8%;
+    top: 94vh;
+    width: 100vw;
     position: fixed;
     display: flex;
   }
@@ -184,12 +171,5 @@
   }
   .bookmark-pics-container {
     margin-left: 2.25rem;
-  }
-  .my-profile-content {
-    margin-left: 2.25rem;
-    width: 104vw;
-    margin-top: 5px;
-    padding: 1rem 0 0 0;
-    border-radius: 8px;
   }
 }

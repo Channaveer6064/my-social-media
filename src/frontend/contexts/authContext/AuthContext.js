@@ -63,6 +63,11 @@ export const AuthProvider = ({ children }) => {
         password,
         username
       );
+      const { createdUser, encodedToken } = response?.data;
+      localStorage.setItem("token", encodedToken);
+      localStorage.setItem("userDetails", JSON.stringify(createdUser));
+      setToken(encodedToken);
+      setLoggedInUserDetails(createdUser);
     } catch (error) {
       if (error?.status === 422) {
         console.error("Username Already Exists. Please choose another one.");

@@ -13,17 +13,15 @@ import { NavLink } from "react-router-dom";
 export const PostCard = ({ post }) => {
   const [click, setClick] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const { createPostHandler, singlePost, likeHandler, unlikeHandler } =
-    usePosts();
+  const { likeHandler, unlikeHandler } = usePosts();
   const { allUsers } = useUsers();
   const { token, loggedInUserDetails } = useAuth();
-  const { bookmark, addToBookmarkHandler, removeFromBookmarkHandler } =
-    useBookmark();
+  const { addToBookmarkHandler, removeFromBookmarkHandler } = useBookmark();
   const [bookmarked, setBookmarked] = useState(false);
   const selectedUserDetails = allUsers.filter(
     (user) => user.username === post.username
   );
-  // console.log(likes);
+  console.log(selectedUserDetails);
   return (
     <div className="post-container">
       <div className="post-header">

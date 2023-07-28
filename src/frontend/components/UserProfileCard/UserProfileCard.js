@@ -25,83 +25,80 @@ export const UserProfileCard = ({ user, userPostsArray }) => {
         alt="img"
         className="main-profile-pic"
       ></img>
-      <div className="profile-username">
-        <span
-          style={{
-            fontSize: "20px",
-            fontWeight: "700",
-          }}
-        >
-          {selectedUser.firstName}&nbsp;{selectedUser.lastName}
-        </span>
-        <br />
+      <span
+        style={{
+          fontSize: "20px",
+          fontWeight: "700",
+        }}
+      >
+        {selectedUser.firstName}&nbsp;{selectedUser.lastName}
+      </span>
 
-        <span
-          style={{
-            fontSize: "14px",
-            alignSelf: "center",
-            color: "gray",
-          }}
-        >
-          @{selectedUser.username}
-        </span>
-        <br />
-        <button
-          style={{
-            background: "transparent",
-            marginTop: "10px",
-            color: "black",
-            border: ".5px solid black",
-            alignSelf: "center",
-          }}
-        >
-          {loggedInUserDetails._id === selectedUser._id ? (
-            <>
-              <span style={{ fontWeight: "var(--bold-weight)", width: "90px" }}>
-                Edit Profile
-              </span>
-            </>
-          ) : (
-            <>
-              {selectedUser?.followers?.find(
-                (user) => user.username === loggedInUserDetails.username
-              ) ? (
-                <>
-                  <button
-                    className="follow-btn"
-                    onClick={() => {
-                      unFollowUserHandler(selectedUser._id, token);
+      <span
+        style={{
+          fontSize: "14px",
+          alignSelf: "center",
+          color: "gray",
+        }}
+      >
+        @{selectedUser.username}
+      </span>
+      <br />
+      <button
+        style={{
+          background: "transparent",
+          marginTop: "10px",
+          color: "black",
+          border: ".5px solid black",
+          alignSelf: "center",
+        }}
+      >
+        {loggedInUserDetails._id === selectedUser._id ? (
+          <>
+            <span style={{ fontWeight: "var(--bold-weight)", width: "90px" }}>
+              Edit Profile
+            </span>
+          </>
+        ) : (
+          <>
+            {selectedUser?.followers?.find(
+              (user) => user.username === loggedInUserDetails.username
+            ) ? (
+              <>
+                <button
+                  className="follow-btn"
+                  onClick={() => {
+                    unFollowUserHandler(selectedUser._id, token);
+                  }}
+                >
+                  <span
+                    style={{
+                      fontWeight: "var(--bold-weight)",
                     }}
                   >
-                    <span
-                      style={{
-                        fontWeight: "var(--bold-weight)",
-                      }}
-                    >
-                      unfollow
-                    </span>
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    className="follow-btn"
-                    onClick={() => {
-                      followUserHandler(selectedUser._id, token);
-                    }}
-                  >
-                    <span style={{ fontWeight: "var(--bold-weight)" }}>
-                      Follow
-                    </span>
-                    &nbsp;
-                    <span style={{ fontWeight: "var(--bold-weight)" }}>+</span>
-                  </button>
-                </>
-              )}
-            </>
-          )}
-        </button>
-      </div>
+                    unfollow
+                  </span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  className="follow-btn"
+                  onClick={() => {
+                    followUserHandler(selectedUser._id, token);
+                  }}
+                >
+                  <span style={{ fontWeight: "var(--bold-weight)" }}>
+                    Follow
+                  </span>
+                  &nbsp;
+                  <span style={{ fontWeight: "var(--bold-weight)" }}>+</span>
+                </button>
+              </>
+            )}
+          </>
+        )}
+      </button>
       <p>{user.bio}</p>
       <br />
       <a
