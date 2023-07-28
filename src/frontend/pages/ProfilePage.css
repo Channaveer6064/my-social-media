@@ -3,6 +3,7 @@
   height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 #profilepage-main-content {
   display: flex;
@@ -161,8 +162,10 @@
     width: 100wh;
   }
   .profile-page-footer {
-    top: 91vh;
-    position: sticky;
+    top: 98vh;
+    width: 104vw;
+    margin-left: 8%;
+    position: fixed;
     display: flex;
   }
 
@@ -184,7 +187,7 @@
   }
   .my-profile-content {
     margin-left: 2.25rem;
-    width: 100vw;
+    width: 104vw;
     margin-top: 5px;
     padding: 1rem 0 0 0;
     border-radius: 8px;

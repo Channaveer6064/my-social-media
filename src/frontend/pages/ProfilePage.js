@@ -12,14 +12,12 @@ export const ProfilePage = () => {
   const { userPostsArray, getUserPosts, showPosts, setShowPosts } = usePosts();
   const { selectedUser, getSingleUser } = useUsers();
   const { allPosts } = usePosts();
-  //useparams
   const { username, _id } = useParams();
   const { bookmark } = useBookmark();
   const { loggedInUserDetails } = useAuth();
   const bookmarArray = bookmark.map((i) =>
     allPosts.filter((post) => i._id === post._id)
   );
-  // console.log(loggedInUserDetails.following.length);
   //useEffect
   useEffect(() => {
     getUserPosts(username);
@@ -39,6 +37,9 @@ export const ProfilePage = () => {
             />
 
             <br />
+            <div className="profile-page-footer">
+              <Sidebar />
+            </div>
             <div className="profilepage-filter">
               {" "}
               <p
@@ -113,9 +114,6 @@ export const ProfilePage = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="profile-page-footer">
-        <Sidebar />
       </div>
     </div>
   );

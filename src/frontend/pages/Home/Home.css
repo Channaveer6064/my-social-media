@@ -1,9 +1,6 @@
 .home {
   position: relative;
 }
-.home-sidebar {
-  display: block;
-}
 #home-sidebar {
   display: none;
 }
@@ -11,7 +8,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
 }
 .create-post {
   padding: 1rem;
@@ -26,16 +23,16 @@
   height: 100px;
 }
 .create-post button {
+  margin-top: 0.5rem;
   margin-left: 77%;
   border: 1px solid var(--primary-color);
 }
 .filter-box {
   margin-top: 1rem;
-  width: 450px;
+  width: 465px;
   background-color: white;
   display: flex;
   justify-content: space-between;
-  /* padding: 0 10px 0 10px; */
   border-radius: 8px;
 }
 .home-suggestion-container {
@@ -102,7 +99,7 @@
   #home-sidebar {
     display: flex;
     width: 100vw;
-    top: 91vh;
+    top: 92vh;
     position: fixed;
   }
   .home-posts-container {
@@ -126,9 +123,8 @@
   }
   .filter-box {
     margin-left: 20%;
-
     margin-top: 1.5rem;
-    width: 470px;
+    width: 465px;
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -175,7 +171,6 @@
     justify-content: space-between;
   }
   .home-posts-container {
-    /* align-items: flex-end; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -195,8 +190,6 @@
   .home-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between;
-  position: relative; */
   }
   .home-sidebar {
     display: none;
@@ -206,19 +199,20 @@
   }
   #home-sidebar {
     display: flex;
-    width: 100vw;
-    top: 91vh;
-
-    position: sticky;
+    top: 98vh;
+    position: fixed;
+    width: 104vw;
   }
+
   .create-post {
     padding: 1rem;
-    width: 435px;
+    width: 100vw;
     background-color: white;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     margin-top: 0.5rem;
+    margin-left: 0;
   }
   .create-post button {
     display: flex;
@@ -242,7 +236,7 @@
   .status-container {
     margin-top: 5px;
     height: 60px;
-    width: 100vw;
+    width: 104vw;
     margin-left: 0;
     padding: 2px;
     margin-left: 0px;
@@ -268,9 +262,8 @@
   }
   .create-post {
     margin-top: 1.5rem;
-
     margin-left: 0.25rem;
-    width: 90vw;
+    width: 94vw;
   }
   .create-post button {
     width: 20%;
@@ -279,7 +272,6 @@
   .filter-box-content {
     font-size: 15px;
     margin-left: 5px;
-    /* margin-right: 10px; */
     font-weight: 600;
   }
   .home-posts-container {

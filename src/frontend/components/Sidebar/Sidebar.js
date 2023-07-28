@@ -31,22 +31,12 @@ export const Sidebar = () => {
       </NavLink>
 
       <div className="sidebar-list">
-        <NavLink
-          to="/"
-          style={{ textDecoration: "none", color: "black" }}
-          className="list-btn-container"
-        >
-          <FaHome style={{ fontSize: "20px", alignSelf: "center" }} />
+        <NavLink to="/" className="sidebar-btn-container">
+          <FaHome style={{ fontSize: "20px" }} />
           &nbsp; &nbsp;
-          <span style={{ fontWeight: "600" }} className="list-btn-heading">
-            Home
-          </span>
+          <span className="list-btn-heading">Home</span>
         </NavLink>
-        <NavLink
-          to="/explorepage"
-          style={{ textDecoration: "none", color: "black" }}
-          className="list-btn-container"
-        >
+        <NavLink to="/explorepage" className="sidebar-btn-container">
           <MdExplore style={{ fontSize: "20px" }} />
           &nbsp; &nbsp;
           <span className="list-btn-heading" style={{ fontWeight: "600" }}>
@@ -55,22 +45,9 @@ export const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          to={"/"}
-          className="list-btn-container"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <FaPlus style={{ fontSize: "20px" }} />
-          &nbsp;&nbsp;
-          <span className="list-btn-heading" style={{ fontWeight: "600" }}>
-            create post
-          </span>
-        </NavLink>
-        <NavLink
           to={`/profilepage/${loggedInUserDetails.username}/${loggedInUserDetails._id}`}
-          style={{ textDecoration: "none", color: "black" }}
           onClick={() => setShowPosts(false)}
-          className="list-btn-container"
+          className="sidebar-btn-container"
         >
           &nbsp;&nbsp;&nbsp;&nbsp;
           <BsBookmarkFill style={{ fontSize: "18px" }} />
@@ -81,9 +58,8 @@ export const Sidebar = () => {
         </NavLink>
         <NavLink
           to={`/profilepage/${loggedInUserDetails.username}/${loggedInUserDetails._id}`}
-          style={{ textDecoration: "none", color: "black" }}
           onClick={() => setShowPosts(true)}
-          className="list-btn-container"
+          className="sidebar-btn-container"
         >
           <IoMdPerson style={{ fontSize: "20px" }} />
           &nbsp; &nbsp;
@@ -91,16 +67,13 @@ export const Sidebar = () => {
             Profile
           </span>
         </NavLink>
-        {/* <br /> */}
         <NavLink
-          className="list-btn-container"
-          style={{ textDecoration: "none", color: "black" }}
+          className="sidebar-btn-container"
           onClick={() => {
             logoutHandler();
             navigator("/login");
           }}
         >
-          {" "}
           <RiLogoutBoxRFill style={{ fontSize: "20px" }} />
           &nbsp; &nbsp;
           <span className="list-btn-heading" style={{ fontWeight: "600" }}>

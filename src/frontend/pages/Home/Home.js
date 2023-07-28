@@ -32,9 +32,6 @@ export const Home = () => {
         <div className="home-sidebar-container">
           <Sidebar />
         </div>
-        {/* <div id="home-sidebar">
-          <Sidebar />
-        </div> */}
 
         <div className="home-content">
           <div className="status-container">
@@ -42,7 +39,7 @@ export const Home = () => {
               <NavLink
                 key={_id}
                 to={`profilepage/${username}/${_id}`}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", color: "black" }}
               >
                 <div id="status-pic-container">
                   <img src={avatar} alt="status-pic" id="status-pic" />
@@ -59,7 +56,9 @@ export const Home = () => {
               </NavLink>
             ))}
           </div>
-
+          <div id="home-sidebar">
+            <Sidebar />
+          </div>
           <div className="create-post">
             <textarea
               placeholder="post something interesting!"

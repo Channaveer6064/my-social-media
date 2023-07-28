@@ -10,8 +10,10 @@ export const Explore = () => {
   const { allPosts } = usePosts();
   return (
     <div className="explorepage-container">
-      {/* <Navbar /> */}
       <div className="explorepage-sidebar-container">
+        <Sidebar />
+      </div>
+      <div className="explorepage-sidebar">
         <Sidebar />
       </div>
       <div className="explorepage-content">

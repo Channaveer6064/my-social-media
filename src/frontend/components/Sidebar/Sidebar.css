@@ -17,17 +17,19 @@
   align-items: space-around;
 }
 
-.list-btn-container {
+.sidebar-btn-container {
   display: flex;
   justify-content: center;
+  text-decoration: none;
+  color: black;
 }
 
 @media (max-width: 900px) {
-  .sidebar-nav-items {
+  .sidebar-container {
     padding: 1.1rem;
     width: 100vw;
     margin-left: 0;
-    height: 2rem;
+    height: 1.5rem;
     align-content: center;
     justify-content: center;
   }
@@ -42,7 +44,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0.5rem 1rem 0.5rem 1rem;
   }
   .list-btn-heading {
     display: none;
@@ -54,5 +55,14 @@
 @media (max-width: 480px) {
   #brand-header {
     display: none;
+  }
+  .sidebar-container {
+    top: 95vh;
+    position: sticky;
+    padding: 1.1rem;
+    width: 95vw;
+    height: 0.5rem;
+    align-content: center;
+    justify-content: center;
   }
 }
