@@ -13,7 +13,7 @@ export const Sidebar = () => {
   const { setShowPosts } = usePosts();
   const navigator = useNavigate();
   return (
-    <div className="sidebar-nav-items">
+    <div className="sidebar-container">
       <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
         <p
           id="brand-header"

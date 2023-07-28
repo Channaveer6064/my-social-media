@@ -27,12 +27,6 @@ export const ProfilePage = () => {
   }, [username, _id]);
   return (
     <div className="profile-page-container">
-      {/* navbar */}
-      {/* 
-      <div className="profile-page-header">
-        <Navbar />
-      </div> */}
-
       <div className="profile-page-content">
         <div id="profilepage-main-content">
           <div className="profilepage-left-sidebar">

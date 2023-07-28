@@ -9,13 +9,12 @@ export const Login = () => {
     username: "",
     password: "",
   });
-  // const [showLoginPwd, setShowLoginPwd] = useState(false);
   const guestUserDetails = {
     username: "jugeshRaghav01",
     password: "jugesh15",
   };
   return (
-    <div>
+    <div className="login-page-container">
       <div className="form-container">
         <h1>
           <span style={{ color: "#ff3b30" }}>My</span> Social
@@ -30,9 +29,7 @@ export const Login = () => {
           }}
         >
           <h1 className="login-label">Login</h1>
-          <div>
-            {/* <label className="login-label">UserName</label>
-            <br></br> */}
+          <p>
             <input
               required
               className="login-input"
@@ -44,10 +41,8 @@ export const Login = () => {
                 setUserDetails({ ...userDetails, username: e.target.value });
               }}
             ></input>
-          </div>{" "}
-          <div>
-            {/* <label className="login-label">Password</label> */}
-            {/* <br></br> */}
+          </p>{" "}
+          <p>
             <input
               required
               value={userDetails.password}
@@ -59,39 +54,31 @@ export const Login = () => {
                 setUserDetails({ ...userDetails, password: e.target.value });
               }}
             ></input>
-          </div>{" "}
+          </p>
           <div className="login-checkbox">
-            {" "}
-            <div>
-              {" "}
+            <p>
               <input type="checkbox"></input> <span>Remember me</span>
-            </div>{" "}
+            </p>{" "}
           </div>
-          <div className="login-btn-container">
-            <button className="login-btn" type="submit">
-              <strong>Login</strong>
-            </button>{" "}
-            <br />
-            <br />
-            <button
-              type="submit"
-              className="login-btn"
-              onClick={() => {
-                setUserDetails(guestUserDetails);
-                // navigator("/");
-              }}
-            >
-              <strong>Login as guest</strong>
-            </button>
-          </div>
+          <button className="login-btn" type="submit">
+            <strong>Login</strong>
+          </button>{" "}
+          <button
+            type="submit"
+            className="login-btn"
+            onClick={() => {
+              setUserDetails(guestUserDetails);
+            }}
+          >
+            <strong>Login as guest</strong>
+          </button>
           <div
             style={{
               display: "flex",
-
               alignItems: "center",
             }}
           >
-            <p style={{ marginRight: "10%", marginLeft: "5%" }}>
+            <p style={{ marginRight: "15%", marginLeft: "5%" }}>
               create new account?
             </p>
 
@@ -101,7 +88,7 @@ export const Login = () => {
             >
               SignUp
             </strong>
-          </div>{" "}
+          </div>
         </form>
       </div>
     </div>

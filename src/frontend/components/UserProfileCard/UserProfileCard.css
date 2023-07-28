@@ -1,0 +1,19 @@
+@media (max-width: 480px) {
+  .follower-details p {
+    font-size: 13px;
+  }
+  .main-profile-pic {
+    height: 80px;
+    width: 80px;
+    border-radius: 80px;
+  }
+  .profile-username > span {
+    font-weight: 300;
+  }
+}
+@media (max-width: 900px) {
+  .follow-btn {
+    text-align: center;
+    padding: 0;
+  }
+}

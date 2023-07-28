@@ -5,18 +5,16 @@ import { Sidebar } from "../../components/Sidebar/Sidebar";
 import { Suggestions } from "../../components/Suggestions/Suggestions";
 import { usePosts } from "../../contexts/PostContext/PostContext";
 import { PostCard } from "../../components/PostCard/PostCard";
-import { Navbar } from "../../components/Navbar";
 import { useUsers } from "../../contexts/userContext/UserContext";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { useAuth } from "../../contexts/authContext/AuthContext";
 import { useCreatePost } from "../../contexts/CreatePostContext/CreatePostContext";
 
 export const Home = () => {
-  const { postsArray, allPosts, createPostHandler } = usePosts();
+  const { allPosts, createPostHandler } = usePosts();
   const { allUsers } = useUsers();
   const { loggedInUserDetails, token } = useAuth();
   const { postContent, setPostContent } = useCreatePost();
-  const testPost = "wnfjwfuhbheggjbjtrnhbbgbngjnbitnbn";
   const statusUserArray = allUsers.filter(
     (user) => user._id !== loggedInUserDetails._id
   );
@@ -27,12 +25,17 @@ export const Home = () => {
         (followingUser) => followingUser?.username === post?.username
       ) || loggedInUserDetails?.username === post?.username
   );
+
   return (
     <div className="home">
       <div className="home-container">
         <div className="home-sidebar-container">
           <Sidebar />
         </div>
+        {/* <div id="home-sidebar">
+          <Sidebar />
+        </div> */}
+
         <div className="home-content">
           <div className="status-container">
             {statusUserArray.map(({ _id, username, firstName, avatar }) => (
@@ -56,14 +59,11 @@ export const Home = () => {
               </NavLink>
             ))}
           </div>
-          <div id="home-sidebar">
-            <Sidebar />
-          </div>
+
           <div className="create-post">
             <textarea
               placeholder="post something interesting!"
               type="text"
-              style={{ height: "100px" }}
               onChange={(e) => {
                 e.preventDefault();
                 setPostContent({ content: e.target.value });
@@ -71,17 +71,12 @@ export const Home = () => {
             ></textarea>
             <button
               type="submit"
-              style={{
-                marginTop: ".5rem",
-                marginLeft: "77%",
-                borderRadius: "6px",
-              }}
               onClick={() => {
                 createPostHandler(postContent, token);
                 setPostContent({ content: "" });
               }}
             >
-              Post
+              <strong>Post</strong>
             </button>
           </div>
 
@@ -91,6 +86,7 @@ export const Home = () => {
               <FaFilter />
             </p>
           </div>
+
           <div className="home-posts-container">
             {homePosts.length > 0 ? (
               <>
@@ -108,24 +104,29 @@ export const Home = () => {
             )}
           </div>
         </div>
+
         <div className="home-suggestion-container">
           <SearchBar />
-          <div className="suggestions-header">
-            <p style={{ fontWeight: "var(--bold-weight)", cursor: "pointer" }}>
-              suggested for you
-            </p>
 
-            <p style={{ color: "var(--primary-color)" }}>
-              <span
-                style={{ fontWeight: "var(--bold-weight)", cursor: "pointer" }}
-              >
-                see all
-              </span>
-            </p>
+          <div className="suggestions-header">
+            <span
+              style={{ fontWeight: "var(--bold-weight)", cursor: "pointer" }}
+            >
+              suggested for you
+            </span>
+
+            <span
+              style={{
+                color: "var(--primary-color)",
+                fontWeight: "var(--bold-weight)",
+                cursor: "pointer",
+              }}
+            >
+              see all
+            </span>
           </div>
-          <div>
-            <Suggestions />
-          </div>
+
+          <Suggestions />
         </div>
       </div>
     </div>

@@ -179,4 +179,14 @@
     margin-bottom: 10px;
     margin-right: 10px;
   }
+  .bookmark-pics-container {
+    margin-left: 2.25rem;
+  }
+  .my-profile-content {
+    margin-left: 2.25rem;
+    width: 100vw;
+    margin-top: 5px;
+    padding: 1rem 0 0 0;
+    border-radius: 8px;
+  }
 }

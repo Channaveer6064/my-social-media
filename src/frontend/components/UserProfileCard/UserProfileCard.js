@@ -17,7 +17,7 @@ export const UserProfileCard = ({ user, userPostsArray }) => {
   useEffect(() => {
     getSingleUser(_id);
   }, [_id]);
-  console.log(selectedUser);
+  console.log(selectedUser.followers);
   return (
     <div className="my-profile-content">
       <img

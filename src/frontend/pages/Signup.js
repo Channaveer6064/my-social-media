@@ -28,65 +28,58 @@ export const Signup = () => {
           }}
         >
           <h1>Signup</h1>
-          <div>
-            <input
-              placeholder="Enter firstname"
-              className="signup-input"
-              type="text"
-              onChange={(e) => {
-                e.preventDefault();
-                setUserSignupDetails({
-                  ...userSignupDetails,
-                  firstname: e.target.value,
-                });
-              }}
-            ></input>
-          </div>{" "}
-          <div>
-            <input
-              placeholder="Enter lastname"
-              className="signup-input"
-              type="text"
-              onChange={(e) => {
-                e.preventDefault();
-                setUserSignupDetails({
-                  ...userSignupDetails,
-                  lastname: e.target.value,
-                });
-              }}
-            ></input>
-          </div>{" "}
-          <div>
-            {/* <label>Username</label> <br></br> */}
-            <input
-              placeholder="Enter username"
-              className="signup-input"
-              type="text"
-              onChange={(e) => {
-                e.preventDefault();
-                setUserSignupDetails({
-                  ...userSignupDetails,
-                  username: e.target.value,
-                });
-              }}
-            ></input>
-          </div>{" "}
-          <div>
-            <input
-              placeholder="Enter password"
-              className="signup-input"
-              type="password"
-              onChange={(e) => {
-                e.preventDefault();
-                setUserSignupDetails({
-                  ...userSignupDetails,
-                  password: e.target.value,
-                });
-              }}
-            ></input>
-          </div>
-          {/* <div className="signup-btn"> */}
-          <div>
+          <input
+            placeholder="Enter firstname"
+            className="signup-input"
+            type="text"
+            onChange={(e) => {
+              e.preventDefault();
+              setUserSignupDetails({
+                ...userSignupDetails,
+                firstname: e.target.value,
+              });
+            }}
+          ></input>
+
+          <input
+            placeholder="Enter lastname"
+            className="signup-input"
+            type="text"
+            onChange={(e) => {
+              e.preventDefault();
+              setUserSignupDetails({
+                ...userSignupDetails,
+                lastname: e.target.value,
+              });
+            }}
+          ></input>
+          <input
+            placeholder="Enter username"
+            className="signup-input"
+            type="text"
+            onChange={(e) => {
+              e.preventDefault();
+              setUserSignupDetails({
+                ...userSignupDetails,
+                username: e.target.value,
+              });
+            }}
+          ></input>
+
+          <input
+            placeholder="Enter password"
+            className="signup-input"
+            type="password"
+            onChange={(e) => {
+              e.preventDefault();
+              setUserSignupDetails({
+                ...userSignupDetails,
+                password: e.target.value,
+              });
+            }}
+          ></input>
+
+          <p>
             <span>already have a account?</span>
             <strong
               style={{
@@ -98,13 +91,11 @@ export const Signup = () => {
             >
               Login
             </strong>
-          </div>
-          <div>
-            <button className="signup-btns" type="submit">
-              <strong>signup</strong>
-            </button>
-          </div>
-          {/* </div> */}
+          </p>
+
+          <button className="signup-btns" type="submit">
+            <strong>signup</strong>
+          </button>
         </form>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./PostCard.css";
-import { BsEmojiSmile } from "react-icons/bs";
+import { BsEmojiSmile, BsThreeDots } from "react-icons/bs";
 import { BiBookmark, BiSolidBookmarkStar } from "react-icons/bi";
 import { FaHeart, FaRegComment, FaShare, FaRegHeart } from "react-icons/fa";
 import { Dropdown } from "../DropDown/Dropdown";
@@ -38,12 +38,23 @@ export const PostCard = ({ post }) => {
                   <img src={avatar} alt="img" className="user-profile-pic" />
                 </span>
                 <div id="username-span">
-                  <span style={{ marginLeft: "10px" }}>
+                  <span
+                    style={{
+                      marginLeft: "8px",
+
+                      fontSize: "15px",
+                    }}
+                  >
                     {firstName}
                     {lastName}
                   </span>
 
-                  <span style={{ fontSize: "12px", color: "gray" }}>
+                  <span
+                    style={{
+                      fontSize: "12px",
+                      color: "gray",
+                    }}
+                  >
                     &nbsp;@{username}
                   </span>
                 </div>
@@ -57,7 +68,8 @@ export const PostCard = ({ post }) => {
               setShowDropdown((prev) => !prev);
             }}
           >
-            <p style={{ fontWeight: "900" }}>...</p>
+            {" "}
+            <BsThreeDots />
           </button>
           <>
             <Dropdown
@@ -83,11 +95,6 @@ export const PostCard = ({ post }) => {
           {post.content.length > 40
             ? `${post.content.substring(0, 40)}...`
             : post.content}
-          <span
-            style={{ marginRight: "10px", fontSize: "20px", fontWeight: "700" }}
-          >
-            ...
-          </span>
         </p>
       </div>
       <div className="post-icons-container">
@@ -96,15 +103,11 @@ export const PostCard = ({ post }) => {
             {" "}
             {!click ? (
               <>
-                {" "}
                 <FaRegHeart
+                  className="post-icons"
                   onClick={() => {
                     likeHandler(post._id, token);
                     setClick((prev) => !prev);
-                  }}
-                  style={{
-                    fontSize: "20px",
-                    marginLeft: "10px",
                   }}
                 />
               </>
@@ -112,13 +115,12 @@ export const PostCard = ({ post }) => {
               <>
                 {" "}
                 <FaHeart
+                  className="post-icons"
                   onClick={() => {
                     unlikeHandler(post._id, token);
                     setClick((prev) => !prev);
                   }}
                   style={{
-                    fontSize: "20px",
-                    marginLeft: "10px",
                     color: "red",
                   }}
                 />
@@ -127,11 +129,11 @@ export const PostCard = ({ post }) => {
           </span>
           <span>
             {" "}
-            <FaRegComment style={{ fontSize: "20px", marginLeft: "10px" }} />
+            <FaRegComment className="post-icons" />
           </span>
           <span>
             {" "}
-            <FaShare style={{ fontSize: "20px", marginLeft: "10px" }} />
+            <FaShare className="post-icons" />
           </span>
         </div>
 
@@ -169,13 +171,13 @@ export const PostCard = ({ post }) => {
           )}
         </div>
       </div>
-      <div id="likecount">
+      <span id="likecount">
         {" "}
         <strong style={{ marginLeft: "10px" }}>
           {post?.likes?.likeCount}{" "}
         </strong>
         <span>likes</span>
-      </div>
+      </span>
       <div className="post-comments-container">
         <div className="comments-input-container">
           <span style={{ marginLeft: "10px" }}>
@@ -190,7 +192,4 @@ export const PostCard = ({ post }) => {
   );
 };
 {
-  /* <div className="post-card-icons">
-  
-</div>; */
 }
